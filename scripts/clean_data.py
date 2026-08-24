@@ -8,8 +8,9 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
 
 INPUT_DIR = os.path.join(PROJECT_ROOT, "extracted_csv")
-OUTPUT_PATH = os.path.join(PROJECT_ROOT, "extracted_csv", "master_data.csv")
-
+OUTPUT_DIR = os.path.join(PROJECT_ROOT, "processed_data")
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+OUTPUT_PATH = os.path.join(OUTPUT_DIR, "master_data.csv")
 csv_files = glob.glob(os.path.join(INPUT_DIR, "*.csv"))
 print(f"Found {len(csv_files)} symbol CSV files.")
 
